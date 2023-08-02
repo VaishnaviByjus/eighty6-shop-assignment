@@ -5,6 +5,7 @@
 - PostgreSQL - [Supabase](https://supabase.com/)
 - Weather - [Open Weather Map](https://api.openweathermap.org/data/2.5/weather)
 - Bike Stations - [bicycletransit.workers](https://bts-status.bicycletransit.workers.dev/phl)
+- Host - [Render](https://render.com/)
 
 ## Application Url Path
 
