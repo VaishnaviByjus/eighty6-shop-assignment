@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Stations {
+  id                     Int     @id @default(autoincrement())
+  kioskId                Int
+  name                   String
+  latitude               Float
+  longitude              Float
+  totalDocks             Int
+  docksAvailable         Int
+  bikesAvailable         Int
+  classicBikesAvailable  Int
+  smartBikesAvailable    Int
+  electricBikesAvailable Int
+  rewardBikesAvailable   Int
+  rewardDocksAvailable   Int
+  bikes                  Json
+  kioskStatus            String
+  kioskPublicStatus      String
+  kioskConnectionStatus  String
+  kioskType              Int
+  addressStreet          String
+  addressCity            String
+  addressState           String
+  addressZipCode         String
+  openTime               String?
+  closeTime              String?
+  eventStart             String?
+  eventEnd               String?
+  isEventBased           Boolean @default(false)
+  isVirtual              Boolean @default(false)
+  notes                  String?
+  publicText             String @default("")
+  timeZone               String?
+  trikesAvailable        Int @default(0)
+  createdAt              String
+
+  @@index([kioskId, createdAt(sort: Desc)])
+  @@index([createdAt(sort: Desc)])
+}
+
+model Weather {
+  id         Int    @id @default(autoincrement())
+  name       String
+  latitude   Float
+  longitude  Float
+  weather    Json
+  base       String
+  main       Json
+  visibility Int
+  wind       Json
+  clouds     Json
+  dt         Int
+  sys        Json
+  timezone   Float
+  cod        Int
+  createdAt  String
+
+  @@index([createdAt(sort: Desc)])
+}
